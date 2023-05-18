@@ -1,0 +1,13 @@
+<resources>
+    <string-array name="background_options">
+        <item>Default</item>
+        <item>Warm</item>
+        <item>Cold</item>
+        <item>Epic</item>
+    </string-array>
+
+    <string-array name="text_color_options">
+        <item>Dark</item>
+        <item>Light</item>
+    </string-array>
+</resources>
