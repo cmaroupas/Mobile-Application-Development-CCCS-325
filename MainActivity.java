@@ -1,0 +1,132 @@
+//Student Name: Cynthia Maroupas Student ID: 261119382
+
+package com.example.simplecalculator;
+
+import android.view.View;
+import android.widget.Spinner;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final Integer[] operands = new Integer[4];
+
+        // Initialize spinners
+        Spinner operand1Spinner = findViewById(R.id.operand1_spinner);
+        Spinner operand2Spinner = findViewById(R.id.operand2_spinner);
+        Spinner operand3Spinner = findViewById(R.id.operand3_spinner);
+        Spinner operand4Spinner = findViewById(R.id.operand4_spinner);
+
+        // Set adapter for each spinner with sample data
+        operand1Spinner.setAdapter(new ArrayAdapter<Integer>(
+                this,
+                android.R.layout.simple_list_item_1,
+                new Integer[]{50, 100, 200, 300, 400}
+        ));
+
+        operand2Spinner.setAdapter(new ArrayAdapter<Integer>(
+                this,
+                android.R.layout.simple_list_item_1,
+                new Integer[]{70, 120, 220, 320, 420}
+        ));
+
+        operand3Spinner.setAdapter(new ArrayAdapter<Integer>(
+                this,
+                android.R.layout.simple_list_item_1,
+                new Integer[]{235, 254, 355, 456, 586}
+        ));
+
+        operand4Spinner.setAdapter(new ArrayAdapter<Integer>(
+                this,
+                android.R.layout.simple_list_item_1,
+                new Integer[]{2, 3, 4, 5, 0}
+        ));
+
+        // Spinner listeners to store selected values in operands array
+        operand2Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                operands[1] = (Integer) adapterView.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        operand3Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                operands[2] = (Integer) adapterView.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        operand4Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                operands[3] = (Integer) adapterView.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        operand1Spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                operands[0] = (Integer) adapterView.getSelectedItem();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        // Initialize result text views and calculate button
+        TextView result1TextView = findViewById(R.id.result1_textview);
+        TextView result2TextView = findViewById(R.id.result2_textview);
+        Button calculateButton = findViewById(R.id.calculate_button);
+
+// Calculate button click listener
+        calculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get the selected operands
+                int operand1 = operands[0];
+                int operand2 = operands[1];
+                int operand3 = operands[2];
+                int operand4 = operands[3];
+
+                // Perform calculations
+                int sum = operand1 + operand2;
+                result1TextView.setText(String.valueOf(sum));
+
+                if (operand4 == 0) {
+                    result2TextView.setText("Infinity");
+                } else {
+                    double quotient = (double) operand3 / operand4;
+                    result2TextView.setText(String.format("%.2f", quotient));
+                }
+            }
+        });
+
+    }
+}
