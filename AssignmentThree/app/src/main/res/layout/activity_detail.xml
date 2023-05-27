@@ -8,10 +8,9 @@
     <ImageView
         android:id="@+id/bookImageView"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true"
-        tools:src="@drawable/nordic" />
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/nordic" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -19,6 +18,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:gravity="center"
         android:paddingTop="16dp"
         android:paddingBottom="8dp" />
 
@@ -26,7 +26,7 @@
         android:id="@+id/descriptionTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:paddingBottom="8dp" />
 
     <LinearLayout
@@ -51,10 +51,35 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity: "
+            android:textSize="16sp"
+            android:layout_weight="1"
+            android:gravity="end" />
+
+        <EditText
+            android:id="@+id/quantityEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:minWidth="48dp"
+            android:maxWidth="64dp" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/addToCartButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add to Cart" />
+        android:text="ADD THIS ITEM" />
 
 </LinearLayout>

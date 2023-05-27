@@ -1,13 +1,21 @@
 package com.example.assignmentthree;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailActivity extends AppCompatActivity {
+
+    private double bookPrice;
+    private TextView quantityEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +24,7 @@ public class DetailActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         String bookTitle = extras.getString("bookTitle");
+        bookPrice = extras.getDouble("bookPrice");
 
         int imageResource = 0;
         String title = "";
@@ -23,25 +32,27 @@ public class DetailActivity extends AppCompatActivity {
         String author = "";
         String price = "";
 
+        double bookPrice = 0;  // Initialize bookPrice outside switch-case
+
         switch (bookTitle) {
             case "Nordic Islands: Iceland, Greenland, Norway, Faroe Islands":
                 imageResource = R.drawable.nordic;
                 title = "Nordic Islands: Iceland, Greenland, Norway, Faroe Islands";
-                description = "One of the most renowned nature photographers in Europe, Stefan Forster, documents the extraordinary Nordic islands. Over the course of more than 80 intrepid trips through Greenland, Iceland, Norway, and the Faroe Islands, Forster captures the epic landscapes, wildlife, and beauty of these far-flung isles. Forster?s journey saw him walking hundreds of kilometers through the Highlands of Iceland, paddling a kayak along the west coast of Greenland, sailing on an old wooden ship through the mighty Scoresby Sound of East Greenland, and scaling one of the steepest cliffs on the Faroe Islands. His photographs capture not only these extraordinary landscapes, but also their native inhabitants: young polar foxes, musk ox families, sea eagles, and puffins. The result is a fascinating photographic portrait of some of the most remote and ruggedly beautiful places on earth.";
+                description = "One of the most renowned nature photographers in Europe, Stefan Forster, documents the extraordinary Nordic islands. Over the course of more than 80 intrepid trips through Greenland, Iceland, Norway, and the Faroe Islands, Forster captures the epic landscapes, wildlife, and beauty of these far-flung isles. Forster's journey saw him walking hundreds of kilometers through the Highlands of Iceland, paddling a kayak along the west coast of Greenland, sailing on an old wooden ship through the mighty Scoresby Sound of East Greenland, and scaling one of the steepest cliffs on the Faroe Islands. His photographs capture not only these extraordinary landscapes, but also their native inhabitants: young polar foxes, musk ox families, sea eagles, and puffins. The result is a fascinating photographic portrait of some of the most remote and ruggedly beautiful places on earth.";
                 author = "Forster Stefan";
                 price = "$103.40";
                 break;
             case "Elements: In Pursuit of the Wild":
                 imageResource = R.drawable.elements;
                 title = "Elements: In Pursuit of the Wild";
-                description = "Elements In Pursuit of the Wild, is a powerful and moving visual journey of discovery created by the editors of Rucksack Magazine. In this compilation are stories, interviews, and stunning photographs that highlight locations where we are overwhelmed by the beauty of nature. These wild places embody peace and tranquility, and exploring them requires courage, a sense of adventure, and an intrepid curiosity about the world. Locations featured in this book include the Faroe Islands, the northwest Pacific, Scandinavia, and Scotland, among other places. ";
+                description = "Elements In Pursuit of the Wild, is a powerful and moving visual journey of discovery created by the editors of Rucksack Magazine. In this compilation are stories, interviews, and stunning photographs that highlight locations where we are overwhelmed by the beauty of nature. These wild places embody peace and tranquility, and exploring them requires courage, a sense of adventure, and an intrepid curiosity about the world. Locations featured in this book include the Faroe Islands, the northwest Pacific, Scandinavia, and Scotland, among other places.";
                 author = "Ron Brown";
                 price = "$65.00";
                 break;
             case "Seeing Silence: The Beauty of the World’s Most Quiet Places":
                 imageResource = R.drawable.silence;
                 title = "Seeing Silence: The Beauty of the World’s Most Quiet Places";
-                description = "Award-winning photographer Pete McBride takes readers on a remarkable journey to discover places of peace and quiet in a congested and noisy world. In his book, McBride showcases stunning imagery of serene locations, from Mount Everest to the Grand Canyon, the Atacama Desert to the African savannah, and the Antarctic Peninsula to the Ganges and Nile rivers. These breathtaking photographs capture the magic of being \"truly away\" and serve as a reminder of the disappearing tranquility in our world. McBride's work celebrates the power of nature's sounds and offers both inspiration and a sense of calm to its readers.";
+                description = "Award-winning photographer Pete McBride takes readers on a remarkable journey to discover places of peace and quiet in a congested and noisy world. In his book, McBride showcases stunning imagery of serene locations, from Mount Everest to the Grand Canyon, the Atacama Desert to the African savannah, and the Antarctic Peninsula to the Ganges and Nile rivers. These breathtaking photographs capture the magic of being 'truly away' and serve as a reminder of the disappearing tranquility in our world. McBride's work celebrates the power of nature's sounds and offers both inspiration and a sense of calm to its readers.";
                 author = "Pete McBride";
                 price = "$29.32";
                 break;
@@ -62,7 +73,7 @@ public class DetailActivity extends AppCompatActivity {
             case "Mandy's Gourmet Salads: Recipes for Lettuce and Life":
                 imageResource = R.drawable.mandy;
                 title = "Mandy's Gourmet Salads: Recipes for Lettuce and Life";
-                description = "In Mandy's Gourmet Salads, Mandy and Rebecca talk you through how to create their coveted salads at home, including easy prep steps for essential ingredients, how to mix their famous dressings, and how to combine flavours and textures to create a salad masterpiece. ";
+                description = "In Mandy's Gourmet Salads, Mandy and Rebecca talk you through how to create their coveted salads at home, including easy prep steps for essential ingredients, how to mix their famous dressings, and how to combine flavours and textures to create a salad masterpiece.";
                 author = "Mandy Wolfe";
                 price = "$35.00";
                 break;
@@ -90,7 +101,7 @@ public class DetailActivity extends AppCompatActivity {
             case "Why Things Bite Back: Technology and the Revenge of Unintended Consequences":
                 imageResource = R.drawable.bites;
                 title = "Why Things Bite Back: Technology and the Revenge of Unintended Consequences";
-                description = "In this perceptive and provocative look at everything from computer software that requires faster processors and more support staff to antibiotics that breed resistant strains of bacteria, Edward Tenner offers a virtual encyclopedia of what he calls \"revenge effects\"--the unintended consequences of the mechanical, chemical, biological, and medical forms of ingenuity that have been hallmarks of the progressive, improvement-obsessed modern age. Tenner shows why our confidence in technological solutions may be misplaced, and explores ways in which we can better survive in a world where despite technology's advances--and often because of them--\"reality is always gaining on us.";
+                description = "In this perceptive and provocative look at everything from computer software that requires faster processors and more support staff to antibiotics that breed resistant strains of bacteria, Edward Tenner offers a virtual encyclopedia of what he calls 'revenge effects'--the unintended consequences of the mechanical, chemical, biological, and medical forms of ingenuity that have been hallmarks of the progressive, improvement-obsessed modern age. Tenner shows why our confidence in technological solutions may be misplaced, and explores ways in which we can better survive in a world where despite technology's advances--and often because of them--'reality is always gaining on us.'";
                 author = "Edward Tenner";
                 price = "$22.50";
                 break;
@@ -104,15 +115,15 @@ public class DetailActivity extends AppCompatActivity {
             case "Ethics in Technology: A Philosophical Study":
                 imageResource = R.drawable.ethics;
                 title = "Ethics in Technology: A Philosophical Study";
-                description = "This book explores ethics in a technological world, addressing challenges, traditional limitations, and the impact of scientific progress. It examines key approaches and emphasizes the importance of philosophy of technology in shaping ethical considerations. The author advocates for interdisciplinary dialogue and highlights the significance of \"mid-level ethics\" between individual choices and societal principles.";
+                description = "This book explores ethics in a technological world, addressing challenges, traditional limitations, and the impact of scientific progress. It examines key approaches and emphasizes the importance of philosophy of technology in shaping ethical considerations. The author advocates for interdisciplinary dialogue and highlights the significance of 'mid-level ethics' between individual choices and societal principles.";
                 author = "Topi Heikkerö";
                 price = "$64.99";
                 break;
             case "Good Night, Little Blue Truck":
                 imageResource = R.drawable.littlebluetruck;
                 title = "Good Night, Little Blue Truck";
-                description = "Beep! Beep! Beep! It's time for sleep,\" announces the Little Blue Truck in this delightful bedtime story. As a storm approaches, Little Blue Truck and his friend Toad hurry home, but the noise of thunder and lightning makes it hard to sleep. Soon, other friends seek shelter from the storm, and together they find comfort and bravery in each other's company. When the storm subsides, they embark on a peaceful bedtime ride. With its sweet and humorous tone, this book is a perfect bedtime read for the millions of Little Blue Truck fans.";
-                author = "Alice Schertle ";
+                description = "\"Beep! Beep! Beep! It's time for sleep,\" announces the Little Blue Truck in this delightful bedtime story. As a storm approaches, Little Blue Truck and his friend Toad hurry home, but the noise of thunder and lightning makes it hard to sleep. Soon, other friends seek shelter from the storm, and together they find comfort and bravery in each other's company. When the storm subsides, they embark on a peaceful bedtime ride. With its sweet and humorous tone, this book is a perfect bedtime read for the millions of Little Blue Truck fans.";
+                author = "Alice Schertle";
                 price = "$16.51";
                 break;
             case "The Wonderful Things You Will Be":
@@ -125,7 +136,7 @@ public class DetailActivity extends AppCompatActivity {
             case "The Very Hungry Caterpillar":
                 imageResource = R.drawable.caterpillar;
                 title = "The Very Hungry Caterpillar";
-                description = "\"The Very Hungry Caterpillar\" is an all-time classic picture book that has been cherished by generations worldwide, with a copy sold every 30 seconds somewhere in the world. Have you shared this beloved story with a child or grandchild in your life? This beautiful board book edition features a special interactive feature with die cuts, making it perfect for teaching the days of the week. As the very hungry caterpillar munches its way through the pages, it captures not only the imagination of children but also their hearts. With stunning illustrations and innovative storytelling, this book has received high praise, including being called \"gorgeously illustrated\" and \"brilliantly innovative\" by The New York Times Book Review.";
+                description = "\"The Very Hungry Caterpillar\" is an all-time classic picture book that has been cherished by generations worldwide, with a copy sold every 30 seconds somewhere in the world. Have you shared this beloved story with a child or grandchild in your life? This beautiful board book edition features a special interactive feature with die cuts, making it perfect for teaching the days of the week. As the very hungry caterpillar munches its way through the pages, it captures not only the imagination of children but also their hearts. With stunning illustrations and innovative storytelling, this book has received high praise, including being called 'gorgeously illustrated' and 'brilliantly innovative' by The New York Times Book Review.";
                 author = "Eric Carle";
                 price = "$11.88";
                 break;
@@ -153,10 +164,34 @@ public class DetailActivity extends AppCompatActivity {
         TextView bookPriceTextView = findViewById(R.id.priceTextView);
         bookPriceTextView.setText(price);
 
+        quantityEditText = findViewById(R.id.quantityEditText);
+
+
         Button addToCartButton = findViewById(R.id.addToCartButton);
-        // Set onClickListener for the addToCartButton
         addToCartButton.setOnClickListener(v -> {
-            // Code to handle "add to cart" click
+            String quantityString = quantityEditText.getText().toString();
+            if (!quantityString.isEmpty()) {
+                int quantity = Integer.parseInt(quantityString);
+                double itemTotalPrice = bookPrice * quantity;
+
+                // Save the total price in SharedPreferences
+                SharedPreferences sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putFloat("totalPrice", (float)itemTotalPrice);  // itemTotalPrice is your total price to be saved
+                editor.apply();
+
+                // Create an Intent to return the item details and quantity to BookListActivity
+                Intent intent = new Intent();
+                intent.putExtra("itemTotalPrice", itemTotalPrice);
+                intent.putExtra("quantity", quantity);
+                intent.putExtra("bookPrice", bookPrice);
+                setResult(Activity.RESULT_OK, intent);
+
+                // Finish the current activity and return to BookListActivity
+                finish();
+            } else {
+                Toast.makeText(DetailActivity.this, "Please enter a quantity", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

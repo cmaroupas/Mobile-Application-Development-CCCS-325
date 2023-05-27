@@ -56,4 +56,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("category", category);
         startActivity(intent);
     }
-}
+    }
