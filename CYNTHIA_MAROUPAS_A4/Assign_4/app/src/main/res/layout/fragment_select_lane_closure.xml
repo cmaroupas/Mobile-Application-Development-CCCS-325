@@ -1,0 +1,410 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_legend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please set the lane legend below"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:padding="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:text="Types"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ic_shoulder"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Shoulder"
+                android:padding="20dp"
+                android:src="@drawable/ic_shoulder" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:paddingRight="24dp"
+                android:text="Shoulder"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ic_hov"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="HOV"
+                android:padding="18dp"
+                android:src="@drawable/ic_hov" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:paddingRight="24dp"
+                android:text="HOV"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ic_median"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Median"
+                android:padding="18dp"
+                android:src="@drawable/ic_median" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:paddingRight="24dp"
+                android:text="Median"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ic_ramp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Ramp"
+                android:padding="18dp"
+                android:src="@drawable/ic_ramp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:paddingRight="24dp"
+                android:text="Ramp"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ic_gore"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Gore"
+                android:padding="18dp"
+                android:src="@drawable/ic_gore" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="50dp"
+                android:paddingRight="24dp"
+                android:text="Gore"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_statuses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:text="Statuses"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_closed"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Closed"
+                android:padding="18dp"
+                android:src="@drawable/ic_closed" />
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Closed"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_unknown"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Unknown"
+                android:padding="18dp"
+                android:src="@drawable/ic_unknown" />
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Unknown"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_rolling"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Rolling"
+                android:padding="18dp"
+                android:src="@drawable/ic_rolling" />
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Rolling"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_blocked"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Blocked"
+                android:padding="18dp"
+                android:src="@drawable/ic_blocked" />
+
+            <TextView
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Blocked"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_alternating"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Alternating"
+                android:padding="18dp"
+                android:src="@drawable/ic_alternating" />
+
+            <TextView
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Alternating"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_intermittent"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Intermittent"
+                android:padding="18dp"
+                android:src="@drawable/ic_intermittent" />
+
+            <TextView
+                android:layout_width="102dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Intermittent"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp">
+
+            <ImageView
+                android:id="@+id/ic_lanesaffected"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/round_light_grey_bg"
+                android:contentDescription="Lanes Affected"
+                android:padding="18dp"
+                android:src="@drawable/ic_lanesaffected" />
+
+            <TextView
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Lanes Affected"
+                android:textColor="@android:color/black"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="317dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Cancel"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Save"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>
