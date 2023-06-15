@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="sort_options">
+        <item>Rating</item>
+        <item>Price</item>
+    </string-array>
+</resources>

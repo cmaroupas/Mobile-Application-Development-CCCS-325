@@ -1,0 +1,8 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.CCCS325Assignment5" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="Theme.CCCS325Assignment5" parent="Base.Theme.CCCS325Assignment5" />
+</resources>
